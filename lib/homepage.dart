@@ -73,7 +73,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    Timer(Duration(seconds: 5), () { // loading icon showing
+    Timer(Duration(seconds: 5), () {
+      // loading icon showing
       super.initState();
     });
 
@@ -93,17 +94,15 @@ class _HomePageState extends State<HomePage> {
               title: Text('Home'),
             ),
             drawer: MainDrawer(),
-            body: 
-            Container(
-               decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/images/home_02.png"),
-                fit: BoxFit.cover)),
-               margin: EdgeInsets.all(10) ,
-           padding: EdgeInsets.only(left: 10,top: 10,right: 10,bottom: 10),
-
+            body: Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/home_02.png"),
+                      fit: BoxFit.cover)),
+              margin: EdgeInsets.all(10),
+              padding:
+                  EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 10),
               child: Container(
-                
                   child: !isloggedin
                       ? CircularProgressIndicator()
                       : Column(children: [
@@ -170,114 +169,111 @@ class _HomePageState extends State<HomePage> {
                               backgroundColor: Colors.grey[300],
                             ),
                           ),
-
-                          SizedBox(height: 10,),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                               Column(
-                            
-                            children: <Widget>[
-                          Container(
-                            
-                            child: Text(
-                              "Soil Temperature ",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22.0,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                          ),
-                         
-                          Container(
-                            
-                             padding: EdgeInsets.only(bottom: 0),
-                              child: CircularPercentIndicator(
-                                radius: 120.0,
-                                lineWidth: 10.0,
-                                animation: true,
-                                
-                                percent: double.parse(
-                                    (double.parse(list[0]["Temperature Soil"]) /
-                                            100)
-                                        .toStringAsFixed(1)),
-                                center: Text(
-                                  (double.parse(list[0]["Temperature Soil"])
-                                          .toStringAsPrecision(3)) +
-                                      "°C",
-                                  style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.lightGreenAccent),
-                                ),
-                                backgroundColor: Colors.grey[300],
-                                circularStrokeCap: CircularStrokeCap.round,
-                                progressColor: Colors.lightGreen,
-                              )
-                              ),
-                              ],
-                              ),
-
-
-                                Column(
-                            
-                            children: <Widget>[
-                          Container(
-                            child: Text(
-                              "Air Temperature ",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22.0,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                          ),
-                          Container(
-                              padding: EdgeInsets.only(bottom: 0),
-                              child: CircularPercentIndicator(
-                                radius: 120.0,
-                                lineWidth: 10.0,
-                                animation: true,
-                                percent: double.parse(
-                                    (double.parse(list[0]["Temperature Air"]) /
-                                            100)
-                                        .toStringAsFixed(1)),
-                                center: Text(
-                                  (double.parse(list[0]["Temperature Air"])
-                                          .toStringAsPrecision(3)) +
-                                      "°C",
-                                  style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.lightGreenAccent),
-                                ),
-                                backgroundColor: Colors.grey[300],
-                                circularStrokeCap: CircularStrokeCap.round,
-                                progressColor: Colors.lightGreen,
-                              )),
-                          
+                              Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Text(
+                                      "Soil Temperature ",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 22.0,
+                                          fontWeight: FontWeight.w800),
+                                    ),
+                                  ),
+                                  Container(
+                                      padding: EdgeInsets.only(bottom: 0),
+                                      child: CircularPercentIndicator(
+                                        radius: 120.0,
+                                        lineWidth: 10.0,
+                                        animation: true,
+                                        percent: double.parse((double.parse(
+                                                    list[0]
+                                                        ["Temperature Soil"]) /
+                                                100)
+                                            .toStringAsFixed(1)),
+                                        center: Text(
+                                          (double.parse(list[0]
+                                                      ["Temperature Soil"])
+                                                  .toStringAsPrecision(3)) +
+                                              "°C",
+                                          style: TextStyle(
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.lightGreenAccent),
+                                        ),
+                                        backgroundColor: Colors.grey[300],
+                                        circularStrokeCap:
+                                            CircularStrokeCap.round,
+                                        progressColor: Colors.lightGreen,
+                                      )),
                                 ],
                               ),
-
+                              Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Text(
+                                      "Air Temperature ",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 22.0,
+                                          fontWeight: FontWeight.w800),
+                                    ),
+                                  ),
+                                  Container(
+                                      padding: EdgeInsets.only(bottom: 0),
+                                      child: CircularPercentIndicator(
+                                        radius: 120.0,
+                                        lineWidth: 10.0,
+                                        animation: true,
+                                        percent: double.parse((double.parse(
+                                                    list[0]
+                                                        ["Temperature Air"]) /
+                                                100)
+                                            .toStringAsFixed(1)),
+                                        center: Text(
+                                          (double.parse(list[0]
+                                                      ["Temperature Air"])
+                                                  .toStringAsPrecision(3)) +
+                                              "°C",
+                                          style: TextStyle(
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.lightGreenAccent),
+                                        ),
+                                        backgroundColor: Colors.grey[300],
+                                        circularStrokeCap:
+                                            CircularStrokeCap.round,
+                                        progressColor: Colors.lightGreen,
+                                      )),
+                                ],
+                              ),
                             ],
                           ),
-                          SizedBox(height: 30,),
-                           Row(
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Row(
                             //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                                Column(
-                            
-                            children: <Widget>[
-                         Container(
-                            child: Text(
-                              "Air Humidity",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22.0,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                          ),
-                          /*Container(
+                              Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Text(
+                                      "Air Humidity",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 22.0,
+                                          fontWeight: FontWeight.w800),
+                                    ),
+                                  ),
+                                  /*Container(
                               margin: const EdgeInsets.only(
                                   bottom: 0, top: 50, right: 230),
                               //color: Colors.amber[600],
@@ -361,72 +357,75 @@ class _HomePageState extends State<HomePage> {
                                           positionFactor: 0.5)
                                     ])
                               ]))*/
-                          Container(
-                              padding: EdgeInsets.only(bottom: 0),
-                              child: CircularPercentIndicator(
-                                radius: 120.0,
-                                lineWidth: 10.0,
-                                animation: true,
-                                percent: double.parse(
-                                    (double.parse(list[0]["Humidity Air"]) / 100)
-                                        .toStringAsFixed(1)),
-                                center: Text(
-                                  (double.parse(list[0]["Humidity Air"])
-                                          .toStringAsPrecision(3)) +
-                                      "%",
-                                  style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.lightGreenAccent),
-                                ),
-                                backgroundColor: Colors.grey[300],
-                                circularStrokeCap: CircularStrokeCap.round,
-                                progressColor: Colors.lightGreen,
-                              )),
+                                  Container(
+                                      padding: EdgeInsets.only(bottom: 0),
+                                      child: CircularPercentIndicator(
+                                        radius: 120.0,
+                                        lineWidth: 10.0,
+                                        animation: true,
+                                        percent: double.parse((double.parse(
+                                                    list[0]["Humidity Air"]) /
+                                                100)
+                                            .toStringAsFixed(1)),
+                                        center: Text(
+                                          (double.parse(list[0]["Humidity Air"])
+                                                  .toStringAsPrecision(3)) +
+                                              "%",
+                                          style: TextStyle(
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.lightGreenAccent),
+                                        ),
+                                        backgroundColor: Colors.grey[300],
+                                        circularStrokeCap:
+                                            CircularStrokeCap.round,
+                                        progressColor: Colors.lightGreen,
+                                      )),
                                 ],
                               ),
-
-                                SizedBox(width: 50,),
-                                Column(
-                            
-                            children: <Widget>[
-                          Container(
-                            child: Text(
-                              "Soil Moisture",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22.0,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                          ),
-                          Container(
-                              padding: EdgeInsets.only(bottom: 0),
-                              child: CircularPercentIndicator(
-                                radius: 120.0,
-                                lineWidth: 10.0,
-                                animation: true,
-                                percent: double.parse(
-                                    (double.parse(list[0]["Soil Moisture"]) / 100)
-                                        .toStringAsPrecision(3)),
-                                center: Text(
-                                  (double.parse(list[0]["Soil Moisture"])
-                                          .toStringAsPrecision(3)) +
-                                      "%",
-                                  style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.lightGreenAccent),
-                                ),
-                                backgroundColor: Colors.grey[300],
-                                circularStrokeCap: CircularStrokeCap.round,
-                                progressColor: Colors.lightGreen,
-                              )),
+                              SizedBox(
+                                width: 50,
+                              ),
+                              Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Text(
+                                      "Soil Moisture",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 22.0,
+                                          fontWeight: FontWeight.w800),
+                                    ),
+                                  ),
+                                  Container(
+                                      padding: EdgeInsets.only(bottom: 0),
+                                      child: CircularPercentIndicator(
+                                        radius: 120.0,
+                                        lineWidth: 10.0,
+                                        animation: true,
+                                        percent: double.parse((double.parse(
+                                                    list[0]["Soil Moisture"]) /
+                                                100)
+                                            .toStringAsPrecision(3)),
+                                        center: Text(
+                                          (double.parse(
+                                                      list[0]["Soil Moisture"])
+                                                  .toStringAsPrecision(3)) +
+                                              "%",
+                                          style: TextStyle(
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.lightGreenAccent),
+                                        ),
+                                        backgroundColor: Colors.grey[300],
+                                        circularStrokeCap:
+                                            CircularStrokeCap.round,
+                                        progressColor: Colors.lightGreen,
+                                      )),
                                 ],
                               ),
-
                             ],
                           ),
-  
                           SizedBox(height: 30),
                           RaisedButton(
                             padding: EdgeInsets.symmetric(
@@ -434,16 +433,18 @@ class _HomePageState extends State<HomePage> {
                             onPressed: () => _fetchData(),
                             child: Text('Fetch data',
                                 style: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.green[800],
                                     fontSize: 20.0,
                                     fontWeight: FontWeight.bold)),
-                            color: Colors.green,
+                            color: Colors.grey[300],
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          SizedBox(height: 10,),
-                          RaisedButton(
+                          SizedBox(
+                            height: 10,
+                          ),
+                          /*RaisedButton(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 100, vertical: 10),
                             onPressed: signOut,
@@ -456,7 +457,7 @@ class _HomePageState extends State<HomePage> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
-                          ),
+                          ),*/
                         ])),
             )));
   }
